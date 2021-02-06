@@ -1,0 +1,18 @@
+<?php
+
+return array (
+  'singular' => 'Productos',
+  'plural' => 'Productos',
+  'fields' => 
+  array (
+    'id' => 'Id',
+    'descripcion' => 'Descripcion',
+    'foto' => 'Foto',
+    'stock' => 'Stock',
+    'precio' => 'Precio',
+    'categoria_id' => 'Categoria Id',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'deleted_at' => 'Deleted At',
+  ),
+);
