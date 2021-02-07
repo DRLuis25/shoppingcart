@@ -9,29 +9,43 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary ml-auto">
         <a class="navbar-brand" href="#">ISO</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Inicio </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Administrador</a>
+                <a class="nav-link" href="{{route('home')}}">Administrador</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Carrito</a>
             </li>
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                    <span class="d-none d-md-inline">Usuario</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- Menu Footer-->
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a href="#" class="dropdown-item"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Sign out
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </ul>               
+            </li>
           </ul>
         </div>
+
     </nav>
-
-<div class="wrapper">
-
+<div class="">    
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content">
@@ -40,11 +54,8 @@
     </div>
 
     <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.5
-        </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    <footer class="text-center fixed-bottom">
+        <strong>Copyright &copy; 2014-2020 <a href="">Local</a>.</strong> All rights
         reserved.
     </footer>
 </div>
