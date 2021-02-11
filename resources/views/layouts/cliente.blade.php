@@ -65,8 +65,6 @@
             @yield('content')
         </section>
     </div>
-
-   
 </div>
  <!-- Main Footer -->
  <footer style="">
