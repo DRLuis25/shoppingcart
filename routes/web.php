@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -27,8 +27,15 @@ Route::resource('categorias', 'CategoriasController');
 Route::resource('productos', 'ProductosController');
 
 
-Route::get('/listaproductos',function(){
-    return view('shop.productos');
-});
+Route::get('/listaproductos','ListaComprasController@index')->name('listarproductos');
+
+Route::get('/registro', function () {
+    return view('shop.registro');
+})->name('registro');
+
+Route::get('/revision', function () {
+    return view('shop.revision');
+})->name('revision');
 
 
+Route::resource('usuarios', 'UsuariosController');

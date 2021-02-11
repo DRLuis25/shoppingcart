@@ -2,10 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="col-sm-4 bg-white ">
-        <h1> Menú principal</h1>
-    </div>
-    <div class="row  justify-content-center vh-100">
+    <div class="row  justify-content-center">
         <div class="col-sm-6" style="background-color:rgb(224, 209, 72)">
             <h2 style="text-align: center; font-family: fantasy;color: blue;margin-top: 130px">TIENDA VIRTUAL</h2>
             <h3 style="text-align: center; font-family: fantasy;color: rgb(123, 123, 189);margin-top: 30px">Seleccione la categoria que desee:</h3>

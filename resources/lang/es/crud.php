@@ -14,4 +14,6 @@ return [
     'updated_at'   => 'Actualizado el',
     'deleted_at'   => 'Eliminado el',
     'are_you_sure' => 'Está seguro?',
+    'continue'     => 'Continuar',
+    'register'     => 'Registrar',
 ];
