@@ -17,17 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/review', function () {
-    return view('review');
-});
 
 Route::get('/signin', function () {
     return view('signin');
 });
 
-Route::get('/detaprod', function () {
-    return view('detalleprod');
-});
+
 
 Auth::routes();
 
@@ -40,6 +35,14 @@ Route::resource('productos', 'ProductosController');
 
 
 Route::get('/listaproductos','ListaComprasController@index')->name('listarproductos');
+
+Route::get('/detalle_producto/{id}','ListaComprasController@detalleproducto')->name('detalleproducto');
+
+Route::get('/agregarproducto','ListaComprasController@agregarproducto')->name('agregarproducto');
+
+Route::get('/review','ListaComprasController@review')->name('review');
+
+Route::get('/procesarpedido','ListaComprasController@procesarpedido')->name('procesarpedido');
 
 Route::get('/registro', function () {
     return view('shop.registro');

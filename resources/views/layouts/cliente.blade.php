@@ -36,7 +36,7 @@
                 <a class="nav-link" href="{{route('revision')}}">Prueba revision</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Carrito</a>
+                <a class="nav-link" href="{{route('review')}}">Carrito</a>
             </li>
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">

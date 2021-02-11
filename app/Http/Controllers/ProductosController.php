@@ -62,8 +62,7 @@ class ProductosController extends AppBaseController
             
             $path = Storage::disk('public')->put('photos',$request->file('foto'));
             $producto->fill(['foto'=>asset($path)])->save();
-        }       
-
+        }
         Flash::success(__('messages.saved', ['model' => __('models/productos.singular')]));
 
         return redirect(route('productos.index'));
