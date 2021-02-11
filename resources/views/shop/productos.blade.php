@@ -4,9 +4,8 @@
 
 @section('content')
 <div class="row w-75 mx-auto">
-    <div class="col-2 text-center" style="position:fixed; 
-    transform: translateY(50%); left:5%">
-        <aside class="bg-danger">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-2 text-center mt-5">
+        <aside class="">
             <h3>Categorias</h3>
             <nav class="">
                 <ul class="nav flex-column">
@@ -30,59 +29,21 @@
             </nav>
         </aside>
     </div>
-    <div class="col-10 offset-2 text-center">
-        <h3> Lista productos</h3>
+    <div class="col-12 col-sm-12 col-md-8 col-lg-10 mt-5">
+        
         <div class="row">
-            <div class="card col-3 filter cat1">
-              <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1543/3205/products/nicestuffssnavy_1024x1024.jpg?v=1589419928" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Producto 1</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card col-3 filter cat2">
-              <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1543/3205/products/nicestuffssnavy_1024x1024.jpg?v=1589419928" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Producto 2</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card col-3 filter cat3">
-              <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1543/3205/products/nicestuffssnavy_1024x1024.jpg?v=1589419928" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Producto 3</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card col-3 filter cat4">
-                <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1543/3205/products/nicestuffssnavy_1024x1024.jpg?v=1589419928" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Producto 4</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-            <div class="card col-3 filter cat2">
-                <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1543/3205/products/nicestuffssnavy_1024x1024.jpg?v=1589419928" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Producto 2</h5>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-              </div>
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'99.99','cat'=>'cat1'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'20.25','cat'=>'cat2'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'50.75','cat'=>'cat3'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'40.99','cat'=>'cat2'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'30.49','cat'=>'cat4'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'25.50','cat'=>'cat3'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'99.99','cat'=>'cat1'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'20.25','cat'=>'cat2'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'50.75','cat'=>'cat3'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'40.99','cat'=>'cat2'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'30.49','cat'=>'cat4'])
+          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'25.50','cat'=>'cat3'])
         </div>
     </div>
 </div>
