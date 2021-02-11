@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Gloudemans\Shoppingcart\Contracts\Buyable;
 /**
  * Class Productos
  * @package App\Models
@@ -18,11 +18,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property number $precio
  * @property integer $categoria_id
  */
-class Productos extends Model
+class Productos extends Model implements Buyable
 {
     use SoftDeletes;
-
-    public $table = 'producto';
+    public $table = 'product';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -59,9 +58,8 @@ class Productos extends Model
      *
      * @var array
      */
-    public static $rules = [
+    public static $createRules = [
         'descripcion' => 'required|string|max:255',
-        'foto' => 'required|string|max:255',
         'stock' => 'required|integer',
         'precio' => 'required|numeric',
         'categoria_id' => 'required',
@@ -75,7 +73,7 @@ class Productos extends Model
      **/
     public function categoria()
     {
-        return $this->belongsTo(\App\Models\Categorium::class, 'categoria_id');
+        return $this->belongsTo(Categorias::class, 'categoria_id');
     }
 
     /**
@@ -84,5 +82,19 @@ class Productos extends Model
     public function venta()
     {
         return $this->belongsToMany(\App\Models\Ventum::class, 'venta_detalle');
+    }
+
+
+    public function getBuyableIdentifier($options = null){
+        return $this->id;
+    }
+    public function getBuyableDescription($options = null){
+        return $this->descripcion;
+    }
+    public function getBuyablePrice($options = null){
+        return $this->precio;
+    }
+    public function getBuyableWeight($options = null){
+        return 0;
     }
 }

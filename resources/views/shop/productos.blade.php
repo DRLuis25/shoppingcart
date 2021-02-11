@@ -12,19 +12,11 @@
                     <li class="nav-item">
                         <button class="btn btn-default filter-button" data-filter="all">Todos</button>
                     </li>
-                    <li class="nav-item">
-                        <button class="btn btn-default filter-button" data-filter="cat1">Categoria 1</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-default filter-button" data-filter="cat2">Categoria 2</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-default filter-button" data-filter="cat3">Categoria 3</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-default filter-button" data-filter="cat4">Categoria 4</button>
-                    </li>
-                                            
+                    @foreach ($categorias as $categoria)
+                        <li class="nav-item">
+                            <button class="btn btn-default filter-button" data-filter="{{$categoria->id}}">{{$categoria->descripcion}}</button>
+                        </li>
+                    @endforeach           
                 </ul>
             </nav>
         </aside>
@@ -32,18 +24,9 @@
     <div class="col-12 col-sm-12 col-md-8 col-lg-10 mt-5">
         
         <div class="row">
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'99.99','cat'=>'cat1'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'20.25','cat'=>'cat2'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'50.75','cat'=>'cat3'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'40.99','cat'=>'cat2'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'30.49','cat'=>'cat4'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'25.50','cat'=>'cat3'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'99.99','cat'=>'cat1'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'20.25','cat'=>'cat2'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'50.75','cat'=>'cat3'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'40.99','cat'=>'cat2'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'30.49','cat'=>'cat4'])
-          @include('shop.cardproducto',['nombreprod'=>'NombreProducto','precio'=>'25.50','cat'=>'cat3'])
+            @foreach ($productos as $producto)
+                @include('shop.cardproducto',['producto'=>$producto])
+            @endforeach
         </div>
     </div>
 </div>

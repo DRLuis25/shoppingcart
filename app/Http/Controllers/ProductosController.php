@@ -8,6 +8,7 @@ use App\Repositories\ProductosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Storage;
 use Response;
 
 class ProductosController extends AppBaseController
@@ -55,8 +56,13 @@ class ProductosController extends AppBaseController
     public function store(CreateProductosRequest $request)
     {
         $input = $request->all();
-
-        $productos = $this->productosRepository->create($input);
+        $producto = $this->productosRepository->create($input);
+        
+        if($request->file('foto')){
+            
+            $path = Storage::disk('public')->put('photos',$request->file('foto'));
+            $producto->fill(['foto'=>asset($path)])->save();
+        }       
 
         Flash::success(__('messages.saved', ['model' => __('models/productos.singular')]));
 

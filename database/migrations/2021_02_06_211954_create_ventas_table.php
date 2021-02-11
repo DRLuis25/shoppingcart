@@ -27,14 +27,14 @@ class CreateVentasTable extends Migration
         });
         Schema::create('venta_detalle', function (Blueprint $table) {
             $table->unsignedBigInteger('venta_id');
-            $table->unsignedBigInteger('producto_id');
+            $table->unsignedBigInteger('product_id');
             $table->double('precio');
             $table->double('cantidad');
             $table->timestamps();
             $table->softDeletes();
-            $table->unique(['venta_id','producto_id']);
+            $table->unique(['venta_id','product_id']);
             $table->foreign('venta_id', 'venta_detalle_has_id_ibfk_1')->references('id')->on('venta');
-            $table->foreign('producto_id', 'venta_detalle_has_producto_ibfk_2')->references('id')->on('producto');
+            $table->foreign('product_id', 'venta_detalle_has_producto_ibfk_2')->references('id')->on('product');
         });
     }
 

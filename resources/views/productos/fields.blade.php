@@ -6,8 +6,9 @@
 
 <!-- Foto Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('foto', __('models/productos.fields.foto').':') !!}
-    {!! Form::text('foto', null, ['class' => 'form-control']) !!}
+    {!! Form::label('foto', __('models/productos.fields.foto').':') !!} <br>
+    
+    <input type="file" class="form-control-file" id="foto" name="foto">
 </div>
 
 <!-- Stock Field -->

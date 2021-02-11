@@ -25,6 +25,6 @@ class CreateProductosRequest extends FormRequest
      */
     public function rules()
     {
-        return Productos::$rules;
+        return Productos::$createRules;
     }
 }

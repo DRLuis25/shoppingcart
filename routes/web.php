@@ -45,5 +45,6 @@ Route::get('/revision', function () {
     return view('shop.revision');
 })->name('revision');
 
+Route::get('/test','ListaComprasController@test')->name('test');
 
 Route::resource('usuarios', 'UsuariosController');
