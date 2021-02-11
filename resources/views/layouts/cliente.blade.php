@@ -54,7 +54,7 @@
     </div>
 
     <!-- Main Footer -->
-    <footer class="text-center fixed-bottom">
+    <footer class="text-center">
         <strong>Copyright &copy; 2014-2020 <a href="">Local</a>.</strong> All rights
         reserved.
     </footer>
