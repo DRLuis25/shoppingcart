@@ -22,12 +22,14 @@
                             <label for="pwd">Password:</label>
                             <input class="form-control col-sm6" type="password" id="pwd" name="pwd"><br>
                             <input class="btn btn-outline-primary" type="submit" value="Submit">
+                            <a href="{{route('revision')}}">Login</a>
                         </form>
                     </div>
                     <p><b>Si eres nuevo usuario.</b></p>
                     <p>Si usted no se ha registrado antes, simplemente pulse aqui</p>
                     <div class="" style="margin: 20px;justify-content:left;">
                         <button type="button" class="btn btn-outline-primary" >Registrar</button>
+                        <a href="{{route('registro')}}">Registrarse</a>
                     </div>
                
             </div>

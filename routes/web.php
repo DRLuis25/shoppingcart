@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/signin', function () {
     return view('signin');
-});
+})->name('signin');
 
 
 

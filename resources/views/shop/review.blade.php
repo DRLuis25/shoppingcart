@@ -50,7 +50,8 @@
             <div class="mx-auto text-center" style="margin: 20px">
                 <button type="button" class="btn btn-outline-primary" >Vaciar carrito</button>
                 <!--<button type="button" class="btn btn-outline-primary" >Proceder con el pago</button>
-                --><a href="{{route('revision')}}"class="btn btn-outline-primary">Proceder con el pago</a>
+                    condicional si esta logeado no llevar al signin
+                --><a href="{{route('signin')}}"class="btn btn-outline-primary">Proceder con el pago</a>
             </div> 
         </div>
     </div>
