@@ -1,5 +1,16 @@
+@extends('layouts.cliente')
 
-<h4>Estamos procesando su pedido</h4>
-<p>Esto puede tomar unos minutos</p>
-<a href="{{route('listarproductos')}}">Volver al listado</a>
-<a href="{{route('welcome')}}">Ir al menú principal</a>
+@section('content')
+<div class="container">
+    <div class="col-sm-12 text-center">
+        <h4>Estamos procesando su pedido</h4>
+        <p>Esto puede tomar unos minutos</p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-12 text-center" style="margin-top: 25px">
+            <a href="{{route('listarproductos')}}" class="btn btn-outline-primary">Volver al listado</a>
+            <a href="{{route('welcome')}}" class="btn btn-outline-primary">Ir al menú principal</a>
+        </div>           
+    </div>
+</div>
+@endsection 
