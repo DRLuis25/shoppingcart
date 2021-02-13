@@ -14,12 +14,3 @@
     </div>
 </div>
 @endsection 
-
-
-
-
-
-
-
-
-
