@@ -3,18 +3,15 @@
 @section('content')
 <div class="container">
     @include('flash::message')
-    <table class="table table-bordered">
-        <tbody>
-            <tr>
-              <td><img src="../luffy.png" class="img-fluid" style="max-width:20%; height: auto"  alt=""> Agregado al carrito</td>
-              <th>Subtotal del carrito( cantidad del carrito): S/.25</th>
-              <td><a href="{{route('review')}}" class="btn btn-outline-primary">Carrito</a>
-                <a href="{{route('signin')}}" class="btn btn-outline-primary">Tramitar pedido</a>
-            </td>
-            </tr>
-            <tr>
-          </tbody>
-    </table>
+
+    <div class="row">
+      <div class="col-3"></div>
+      <img src="{{$producto->foto}}" class="col-4" style="max-width:20%; height: auto"  alt="">
+      <div class="col-2">
+        <p class="mt-5 font-weight-bold">{{$producto->descripcion}}</p>
+        <p class="mt-2 float-right">Precio: S/. {{$producto->precio}}</p>
+      </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-sm-12 text-center" style="margin-top: 25px">
           <a href="{{route('review')}}" class="btn btn-outline-primary">Carrito</a>

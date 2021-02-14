@@ -20,7 +20,7 @@
             </div>
             @else
                 <div class="alert alert-info text-center m-0" role="alert">
-                    Your Cart is <b>empty</b>.
+                    @lang('carrito.vacio')
                 </div>
             @endif
         </div>

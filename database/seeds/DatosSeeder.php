@@ -40,7 +40,14 @@ class DatosSeeder extends Seeder
         //productos
         $producto=Productos::create([
             'descripcion'=>'zapato',
-            'foto'=>null,
+            'foto'=>'http://127.0.0.1:8000/photos/OUyGZv7P57MpJwnWaWejMkURG9b9wjrdITn7f9nW.jpg',
+            'stock'=>'50',
+            'precio'=>'10',
+            'categoria_id'=>$categoria1->id,
+        ]);
+        $producto=Productos::create([
+            'descripcion'=>'producto 2',
+            'foto'=>'http://127.0.0.1:8000/photos/OUyGZv7P57MpJwnWaWejMkURG9b9wjrdITn7f9nW.jpg',
             'stock'=>'50',
             'precio'=>'10',
             'categoria_id'=>$categoria1->id,

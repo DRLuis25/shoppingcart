@@ -13,9 +13,11 @@
                         <button class="btn btn-default filter-button" data-filter="all">Todos</button>
                     </li>
                     @foreach ($categorias as $categoria)
-                        <li class="nav-item">
-                            <button class="btn btn-default filter-button" data-filter="{{$categoria->id}}">{{$categoria->descripcion}}</button>
-                        </li>
+                        @if(!$categoria->productos->isEmpty())
+                            <li class="nav-item">
+                                <button class="btn btn-default filter-button" data-filter="{{$categoria->id}}">{{$categoria->descripcion}}</button>
+                            </li>
+                        @endif
                     @endforeach           
                 </ul>
             </nav>

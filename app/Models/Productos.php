@@ -58,9 +58,10 @@ class Productos extends Model implements Buyable
      *
      * @var array
      */
-    public static $createRules = [
+    public static $rules = [
         'descripcion' => 'required|string|max:255',
         'stock' => 'required|integer',
+        'foto' => 'nullable',
         'precio' => 'required|numeric',
         'categoria_id' => 'required',
         'created_at' => 'nullable',

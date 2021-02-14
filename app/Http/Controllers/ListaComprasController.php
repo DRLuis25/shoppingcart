@@ -26,12 +26,13 @@ class ListaComprasController extends Controller
         //return $productocart;
 
         
-        return redirect(route('agregado'));
+        return redirect(route('agregado',compact('producto')));
     }
-    public function agregado(){
+    public function agregado(request $request){
+        $producto = Productos::where('id','=',$request->producto)->first();
         Flash::success(__('carrito.added'));
         //Comprobar si c añade muchas veces
-        return view('shop.agregado');
+        return view('shop.agregado',compact('producto'));
     }
     public function review()
     {

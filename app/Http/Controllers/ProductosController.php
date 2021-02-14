@@ -127,7 +127,11 @@ class ProductosController extends AppBaseController
         }
 
         $productos = $this->productosRepository->update($request->all(), $id);
-
+        if($request->file('foto')){
+            
+            $path = Storage::disk('public')->put('photos',$request->file('foto'));
+            $productos->fill(['foto'=>asset($path)])->save();
+        }
         Flash::success(__('messages.updated', ['model' => __('models/productos.singular')]));
 
         return redirect(route('productos.index'));
