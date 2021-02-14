@@ -15,7 +15,7 @@
                 @include('shop.carrito')
                 <div class="mx-auto text-center" style="margin: 20px">
                     <a href="{{route('vaciarcarrito')}}" class="btn btn-outline-primary">Vaciar carrito</a>
-                    <a href="{{route('signin')}}" class="btn btn-primary">Proceder con el pago</a>
+                    <a href="{{route('revision')}}" class="btn btn-primary">Proceder con el pago</a>
                 </div>
             </div>
             @else

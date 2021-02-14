@@ -24,7 +24,12 @@
                         <div class="col-auto my-1">
                             <input class="form-control" type="number" id="cantidad" name="cantidad" max="{{$producto->stock}}" min="1" required value="1">   
                         </div>
-                        <button class="btn btn-primary">Añadir al carrito</button>
+                        {{--If logeado añadir, sino login--}}
+                        @if (Auth::check())
+                            <button class="btn btn-primary">Añadir al carrito</button>
+                        @else
+                            <a href="{{route('signin')}}" class="btn btn-primary">Añadir al carrito (No logeado)</a>
+                        @endif
                     </div>
                 </form>
             </div>
