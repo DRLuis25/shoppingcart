@@ -38,11 +38,16 @@ Route::get('/listaproductos','ListaComprasController@index')->name('listarproduc
 
 Route::get('/detalle_producto/{id}','ListaComprasController@detalleproducto')->name('detalleproducto');
 
-Route::get('/agregarproducto','ListaComprasController@agregarproducto')->name('agregarproducto');
+Route::get('/agregarproducto/{id}','ListaComprasController@agregarproducto')->name('agregarproducto');
+
+Route::get('/agregado','ListaComprasController@agregado')->name('agregado');
 
 Route::get('/review','ListaComprasController@review')->name('review');
 
 Route::get('/procesarpedido','ListaComprasController@procesarpedido')->name('procesarpedido');
+
+Route::get('/vaciar','ListaComprasController@vaciarcarrito')->name('vaciarcarrito');
+
 
 Route::get('/registro', function () {
     return view('shop.registro');

@@ -7,5 +7,4 @@ return [
     'updated'   => ':model actualizado.',
     'deleted'   => ':model eliminado.',
     'not_found' => ':model no encontrado',
-
 ];
