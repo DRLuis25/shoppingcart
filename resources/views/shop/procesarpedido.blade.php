@@ -5,6 +5,7 @@
     <div class="col-sm-12 text-center">
         <h4>Estamos procesando su pedido</h4>
         <p>Esto puede tomar unos minutos</p>
+        <img src="../pagoproceso.jpg" alt="">
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-12 text-center" style="margin-top: 25px">
