@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="col-sm-12 text-center">
-        <h3>Agregado al carrito </h3>
+    @include('flash::message')
+    <div class="row">
+        descripción producto agregado
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-12 text-center" style="margin-top: 25px">

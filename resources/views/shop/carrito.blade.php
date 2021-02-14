@@ -2,56 +2,39 @@
     <table class="table" id="carrito-table">
         <thead>
             <tr>
-                <th>@lang('carrito.articles')</th>
+                <th>@lang('crud.action')</th>
                 <th>@lang('carrito.quantity')</th>
+                <th>@lang('carrito.articles')</th>
                 <th>@lang('carrito.unitprice')</th>
-                <th>@lang('carrito.total')</th>
-                <th colspan="3">@lang('crud.action')</th>
+                <th>@lang('carrito.importe')</th>
             </tr>
         </thead>
         <tbody>
-            @isset($productos)
-                @foreach($productos as $producto)
-                    <tr>
-                        <td>{{ $producto->nombre }}</td>
-                        <td>{{ $producto->cantidad }}</td>
-                        <td>{{ $producto->precio }}</td>
-                        <td>{{ $producto->total }}</td>
-                        <td width="120">
-                            {!! Form::open(['route' => ['productos.destroy', $producto->id], 'method' => 'delete']) !!}
-                            <div class='btn-group'>
-                                <a href="{{ route('productos.show', [$producto->id]) }}" class='btn btn-default btn-xs'>
-                                    <i class="far fa-eye"></i>
-                                </a>
-                                <a href="{{ route('productos.edit', [$producto->id]) }}" class='btn btn-default btn-xs'>
-                                <i class="far fa-edit"></i>
-                                </a>
-                                {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
-                            </div>
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                @endforeach
-            @endisset
-            <tr>
-                <td>Producto 1</td>
-                <td>1</td>
-                <td>20.99</td>
-                <td>20.99</td>
-                <td width="120">
-                    {!! Form::open(['route' => ['productos.destroy',1], 'method' => 'delete']) !!}
-                    <div class='btn-group'>
-                        <a class='btn btn-default btn-xs'>
-                            <i class="far fa-eye"></i>
-                        </a>
-                        <a class='btn btn-default btn-xs'>
-                        <i class="far fa-edit"></i>
-                        </a>
-                        {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
-                    </div>
-                    {!! Form::close() !!}
-                </td>
-            </tr>
+            @foreach (Cart::content() as $item)
+                <tr>
+                    <td width="120">
+                        {!! Form::open(['route' => ['productos.destroy',1], 'method' => 'delete']) !!}
+                        <div class='btn-group'>
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    </td>
+                    <td>{{ $item->qty }}</td>
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->price }}</td>
+                    <td>{{ $item->total }}</td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
+</div>
+<div class="row">                       
+    <div class="col-md-8">
+    </div>   
+    <div class="col-md-2">                        
+        <label for="">SubTotal : </label>    
+    </div>   
+    <div class="col-md-2">
+        <input type="text" class="form-control text-right" readonly="readonly" value="{{Cart::total()}}">                              
+    </div>   
 </div>

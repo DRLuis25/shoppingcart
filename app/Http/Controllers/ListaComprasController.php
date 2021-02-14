@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorias;
 use App\Models\Productos;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 
 class ListaComprasController extends Controller
 {
@@ -17,8 +18,19 @@ class ListaComprasController extends Controller
         $producto=Productos::where('id','=',$id)->first();
         return view('shop.detalleprod',compact(['producto']));
     }
-    public function agregarproducto(){
+    public function agregarproducto(Request $request){
         //Logica añadir producto al carrito
+        $producto = Productos::where('id','=',$request->id)->first();
+        //return $producto;
+        $productocart=\Cart::add($producto, $request->cantidad);
+        //return $productocart;
+
+        
+        return redirect(route('agregado'));
+    }
+    public function agregado(){
+        Flash::success(__('carrito.added'));
+        //Comprobar si c añade muchas veces
         return view('shop.agregado');
     }
     public function review()
@@ -27,7 +39,9 @@ class ListaComprasController extends Controller
         return view('shop.review');
     }
     public function vaciarcarrito(){
-        
+        \Cart::destroy();
+        Flash::success(__('carrito.empty'));
+        return redirect(route('review'));
     }
     public function procesarpedido(){
         return view('shop.procesarpedido');
