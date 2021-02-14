@@ -13,38 +13,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('welcome');
-
-
-Route::get('/signin', function () {
-    return view('signin');
-})->name('signin');
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::resource('categorias', 'CategoriasController');
-
-Route::resource('productos', 'ProductosController');
-
+//Cualquiera
+Route::get('/', 'ListaComprasController@welcome')->name('welcome');
 
 Route::get('/listaproductos','ListaComprasController@index')->name('listarproductos');
 
 Route::get('/detalle_producto/{id}','ListaComprasController@detalleproducto')->name('detalleproducto');
 
-Route::get('/agregarproducto/{id}','ListaComprasController@agregarproducto')->name('agregarproducto');
+Route::get('/signin', 'ListaComprasController@signin')->name('signin');
 
-Route::get('/agregado','ListaComprasController@agregado')->name('agregado');
+Auth::routes();
 
-Route::get('/review','ListaComprasController@review')->name('review');
+//Admin
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/procesarpedido','ListaComprasController@procesarpedido')->name('procesarpedido');
+Route::resource('categorias', 'CategoriasController');
 
-Route::get('/vaciar','ListaComprasController@vaciarcarrito')->name('vaciarcarrito');
+Route::resource('productos', 'ProductosController');
+
+//Usuario logeado
+
+Route::get('/agregarproducto/{id}','ComprasController@agregarproducto')->name('agregarproducto');
+
+Route::get('/agregado','ComprasController@agregado')->name('agregado');
+
+Route::get('/review','ComprasController@review')->name('review');
+
+Route::get('/procesarpedido','ComprasController@procesarpedido')->name('procesarpedido');
+
+Route::get('/vaciar','ComprasController@vaciarcarrito')->name('vaciarcarrito');
 
 
 Route::get('/registro', function () {

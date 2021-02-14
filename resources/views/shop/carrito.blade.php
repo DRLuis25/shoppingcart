@@ -22,7 +22,7 @@
                     <td>{{ $item->qty }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->price }}</td>
-                    <td>{{ $item->total }}</td>
+                    <td>{{ $item->subtotal }}</td>
                 </tr>
             @endforeach
         </tbody>
@@ -33,8 +33,9 @@
     </div>   
     <div class="col-md-2">                        
         <label for="">SubTotal : </label>    
+        
     </div>   
     <div class="col-md-2">
-        <input type="text" class="form-control text-right" readonly="readonly" value="{{Cart::total()}}">                              
+        <input type="text" class="form-control text-right" readonly="readonly" value="{{Cart::subtotal()}}">                              
     </div>   
 </div>

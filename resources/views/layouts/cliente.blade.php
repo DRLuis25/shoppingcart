@@ -30,30 +30,30 @@
                 <a class="nav-link" href="{{route('home')}}">Administrador</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('registro')}}">Prueba registro</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('revision')}}">Prueba revision</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{route('review')}}">Carrito</a>
             </li>
+            @auth
             <li class="nav-item dropdown user-menu">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                    <span class="d-none d-md-inline">Usuario</span>
+                    <span class="d-none d-md-inline">{{Auth::user()->name}}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- Menu Footer-->
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Perfil</a>
                     <a href="#" class="dropdown-item"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Sign out
+                            Cerrar sesión
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
                 </ul>               
             </li>
+            @else
+            <li>
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            @endif
           </ul>
         </div>
 
