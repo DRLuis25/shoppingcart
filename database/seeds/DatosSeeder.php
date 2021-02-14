@@ -22,10 +22,10 @@ class DatosSeeder extends Seeder
         ]);
         //categorias
         $categoria1=Categorias::create([
-            'descripcion'=>'bebidas',
+            'descripcion'=>'camisas',
         ]);
         $categoria2=Categorias::create([
-            'descripcion'=>'abarrotes',
+            'descripcion'=>'zapatillas',
         ]);
         $categoria3=Categorias::create([
             'descripcion'=>'ga',
@@ -39,18 +39,25 @@ class DatosSeeder extends Seeder
 
         //productos
         $producto=Productos::create([
-            'descripcion'=>'zapato',
+            'descripcion'=>'Camisa blanca manga larga',
             'foto'=>'http://127.0.0.1:8000/photos/OUyGZv7P57MpJwnWaWejMkURG9b9wjrdITn7f9nW.jpg',
             'stock'=>'50',
             'precio'=>'10',
             'categoria_id'=>$categoria1->id,
         ]);
         $producto=Productos::create([
-            'descripcion'=>'producto 2',
+            'descripcion'=>'Camisa blanca',
             'foto'=>'http://127.0.0.1:8000/photos/OUyGZv7P57MpJwnWaWejMkURG9b9wjrdITn7f9nW.jpg',
             'stock'=>'50',
             'precio'=>'10',
             'categoria_id'=>$categoria1->id,
+        ]);
+        $producto=Productos::create([
+            'descripcion'=>'Zapatillas nike',
+            'foto'=>'http://127.0.0.1:8000/photos/TvcW5qUjhJ1j43naEJqQDYTdAqPwb4tngw3eT2KO.png',
+            'stock'=>'50',
+            'precio'=>'10',
+            'categoria_id'=>$categoria2->id,
         ]);
     }
 }
