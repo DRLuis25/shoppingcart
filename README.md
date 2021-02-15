@@ -6,3 +6,5 @@
 - AdminLTE Templates
 - Laravel UI
 - Laravel Collective
+- bumbummen99/LaravelShoppingcart
+- spatie/laravel-permission
