@@ -17,6 +17,6 @@ Comandos:
 - cd shoppingcart
 - composer install
 - renombrar .env.example a .env y configurar la base de datos
-- php artisan migrate:fresh --seed
 - php artisan key:generate
+- php artisan migrate:fresh --seed
 - php artisan serve
