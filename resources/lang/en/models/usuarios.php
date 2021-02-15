@@ -21,5 +21,6 @@ return array (
     'remember_token' => 'Recordar Token',
     'created_at' => 'Creado el',
     'updated_at' => 'Actualizado el',
+    'role' => 'Rol',
   ),
 );

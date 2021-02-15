@@ -3,7 +3,9 @@
 use App\Models\Productos;
 use App\User;
 use App\Models\Categorias;
+use App\Models\Usuarios;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class DatosSeeder extends Seeder
 {
@@ -14,12 +16,24 @@ class DatosSeeder extends Seeder
      */
     public function run()
     {
+
+        Role::create(['name' => 'user']);
+        Role::create(['name' => 'admin']);
         $admin=User::create([
             'name'=>'admin',
             'last_name'=>'admin',
             'email'=>'admin@gmail.com',
             'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
         ]);
+        $admin->assignRole('admin');
+        $user=User::create([
+            'name'=>'user',
+            'last_name'=>'admin',
+            'email'=>'user@gmail.com',
+            'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
+        ]);
+        $user->assignRole('user');
+        
         //categorias
         $categoria1=Categorias::create([
             'descripcion'=>'camisas',

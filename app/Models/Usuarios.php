@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * Class Usuarios
@@ -28,7 +29,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Usuarios extends Model
 {
     use SoftDeletes;
-
+    use HasRoles;
     public $table = 'users';
     
     const CREATED_AT = 'created_at';

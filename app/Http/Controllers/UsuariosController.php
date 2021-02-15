@@ -8,7 +8,9 @@ use App\Repositories\UsuariosRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Hash;
 use Response;
+use Spatie\Permission\Models\Role;
 
 class UsuariosController extends AppBaseController
 {
@@ -42,7 +44,8 @@ class UsuariosController extends AppBaseController
      */
     public function create()
     {
-        return view('usuarios.create');
+        $roles = Role::all();
+        return view('usuarios.create',compact('roles'));
     }
 
     /**
@@ -54,13 +57,19 @@ class UsuariosController extends AppBaseController
      */
     public function store(CreateUsuariosRequest $request)
     {
-        $input = $request->all();
+        try {
+            $input = $request->all();
+            $input['password'] = Hash::make($input['password']);
+            $usuario = $this->usuariosRepository->create($input);
+            $usuario->assignRole($request->role);
 
-        $usuarios = $this->usuariosRepository->create($input);
+            Flash::success(__('messages.saved', ['model' => __('models/usuarios.singular')]));
 
-        Flash::success(__('messages.saved', ['model' => __('models/usuarios.singular')]));
-
-        return redirect(route('usuarios.index'));
+            return redirect(route('usuarios.index'));
+        } catch (\Throwable $th) {
+            Flash::error('Correo ya registrado');
+            return redirect(route('usuarios.index'));
+        }
     }
 
     /**
@@ -92,6 +101,7 @@ class UsuariosController extends AppBaseController
      */
     public function edit($id)
     {
+        $roles = Role::all();
         $usuarios = $this->usuariosRepository->find($id);
 
         if (empty($usuarios)) {
@@ -100,7 +110,7 @@ class UsuariosController extends AppBaseController
             return redirect(route('usuarios.index'));
         }
 
-        return view('usuarios.edit')->with('usuarios', $usuarios);
+        return view('usuarios.edit',compact('roles'))->with('usuarios', $usuarios);
     }
 
     /**
@@ -120,9 +130,16 @@ class UsuariosController extends AppBaseController
 
             return redirect(route('usuarios.index'));
         }
-
+        if ($request['password']) {
+            $request['password'] = Hash::make($request['password']);
+        }
+        else{
+            unset($request['password']);
+        }
         $usuarios = $this->usuariosRepository->update($request->all(), $id);
 
+        $usuarios->roles()->detach();
+        $usuarios->assignRole($request->role);
         Flash::success(__('messages.updated', ['model' => __('models/usuarios.singular')]));
 
         return redirect(route('usuarios.index'));

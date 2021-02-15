@@ -24,12 +24,9 @@ Route::get('/signin', 'ListaComprasController@signin')->name('signin');
 
 Auth::routes();
 
-//Admin
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('categorias', 'CategoriasController');
-
-Route::resource('productos', 'ProductosController');
+Route::get('/registro', function () {
+    return view('shop.registro');
+})->name('registro');
 
 //Usuario logeado
 
@@ -43,15 +40,6 @@ Route::get('/procesarpedido','ComprasController@procesarpedido')->name('procesar
 
 Route::get('/vaciar','ComprasController@vaciarcarrito')->name('vaciarcarrito');
 
-
-Route::get('/registro', function () {
-    return view('shop.registro');
-})->name('registro');
-
 Route::get('/revision', function () {
     return view('shop.revision');
 })->name('revision');
-
-Route::get('/test','ListaComprasController@test')->name('test');
-
-Route::resource('usuarios', 'UsuariosController');

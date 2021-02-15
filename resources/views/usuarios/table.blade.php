@@ -2,6 +2,7 @@
     <table class="table" id="usuarios-table">
         <thead>
             <tr>
+                <th>Rol</th>
                 <th>@lang('models/usuarios.fields.name')</th>
                 <th>@lang('models/usuarios.fields.last_name')</th>
                 <th>@lang('models/usuarios.fields.email')</th>
@@ -16,6 +17,7 @@
         <tbody>
             @foreach($usuarios as $usuario)
                 <tr>
+                    <td>{{ implode(" ",$usuario->getRoleNames()->toArray())}}</td>
                     <td>{{ $usuario->name }}</td>
                     <td>{{ $usuario->last_name }}</td>
                     <td>{{ $usuario->email }}</td>
@@ -27,9 +29,6 @@
                     <td width="120">
                         {!! Form::open(['route' => ['usuarios.destroy', $usuario->id], 'method' => 'delete']) !!}
                         <div class='btn-group'>
-                            <a href="{{ route('usuarios.show', [$usuario->id]) }}" class='btn btn-default btn-xs'>
-                                <i class="far fa-eye"></i>
-                            </a>
                             <a href="{{ route('usuarios.edit', [$usuario->id]) }}" class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                             </a>

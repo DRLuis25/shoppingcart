@@ -53,6 +53,9 @@
             <li>
                 <a class="nav-link" href="{{ route('login') }}">Login</a>
             </li>
+            <li>
+                <a class="nav-link" href="{{ route('registro') }}">Registrarse</a>
+            </li>
             @endif
           </ul>
         </div>
