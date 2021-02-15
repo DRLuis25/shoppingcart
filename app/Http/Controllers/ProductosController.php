@@ -6,6 +6,7 @@ use App\Http\Requests\CreateProductosRequest;
 use App\Http\Requests\UpdateProductosRequest;
 use App\Repositories\ProductosRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Models\Categorias;
 use Illuminate\Http\Request;
 use Flash;
 use Illuminate\Support\Facades\Storage;
@@ -43,7 +44,8 @@ class ProductosController extends AppBaseController
      */
     public function create()
     {
-        return view('productos.create');
+        $categorias = Categorias::all();
+        return view('productos.create',compact('categorias'));
     }
 
     /**
@@ -97,6 +99,7 @@ class ProductosController extends AppBaseController
      */
     public function edit($id)
     {
+        $categorias = Categorias::all();
         $productos = $this->productosRepository->find($id);
 
         if (empty($productos)) {
@@ -105,7 +108,7 @@ class ProductosController extends AppBaseController
             return redirect(route('productos.index'));
         }
 
-        return view('productos.edit')->with('productos', $productos);
+        return view('productos.edit',compact('categorias'))->with('productos', $productos);
     }
 
     /**
@@ -125,7 +128,6 @@ class ProductosController extends AppBaseController
 
             return redirect(route('productos.index'));
         }
-
         $productos = $this->productosRepository->update($request->all(), $id);
         if($request->file('foto')){
             

@@ -26,11 +26,11 @@
         <p>@lang('models/ventas.plural')</p>
     </a>
 </li>
-
+{{-- 
 
 <li class="nav-item">
     <a href="{{ route('detalleVentas.index') }}"
        class="nav-link {{ Request::is('detalleVentas*') ? 'active' : '' }}">
         <p>@lang('models/detalleVentas.plural')</p>
     </a>
-</li>
+</li> --}}

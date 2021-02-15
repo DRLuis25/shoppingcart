@@ -6,11 +6,11 @@ return array (
   'fields' => 
   array (
     'id' => 'Id',
-    'cliente_id' => 'Cliente Id',
+    'cliente_id' => 'Nombre Cliente',
     'ccname' => 'Ccname',
     'ccnumber' => 'Ccnumber',
     'cc' => 'Cc',
-    'direccion' => 'Dirección',
+    'direccion' => 'Dirección de envío',
     'subtotal' => 'Subtotal',
     'envio' => 'Envío',
     'otros' => 'Otros',

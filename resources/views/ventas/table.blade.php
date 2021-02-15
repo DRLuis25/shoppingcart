@@ -3,13 +3,8 @@
         <thead>
             <tr>
                 <th>@lang('models/ventas.fields.cliente_id')</th>
-                <th>@lang('models/ventas.fields.ccname')</th>
-                <th>@lang('models/ventas.fields.ccnumber')</th>
-                <th>@lang('models/ventas.fields.cc')</th>
                 <th>@lang('models/ventas.fields.direccion')</th>
                 <th>@lang('models/ventas.fields.subtotal')</th>
-                <th>@lang('models/ventas.fields.envio')</th>
-                <th>@lang('models/ventas.fields.otros')</th>
                 <th>@lang('models/ventas.fields.total')</th>
                 <th>@lang('models/ventas.fields.estado')</th>
                 <th colspan="3">@lang('crud.action')</th>
@@ -18,16 +13,18 @@
         <tbody>
         @foreach($ventas as $ventas)
             <tr>
-                <td>{{ $ventas->cliente_id }}</td>
-            <td>{{ $ventas->ccname }}</td>
-            <td>{{ $ventas->ccnumber }}</td>
-            <td>{{ $ventas->cc }}</td>
-            <td>{{ $ventas->direccion }}</td>
-            <td>{{ $ventas->subtotal }}</td>
-            <td>{{ $ventas->envio }}</td>
-            <td>{{ $ventas->otros }}</td>
-            <td>{{ $ventas->total }}</td>
-            <td>{{ $ventas->estado }}</td>
+                <td>{{ $ventas->cliente->last_name }}, {{$ventas->cliente->name}}</td>
+                <td>{{ $ventas->direccion }}</td>
+                <td>{{ $ventas->subtotal }}</td>
+                <td>{{ $ventas->total }}</td>
+                <td>@if ($ventas->estado=='0')
+                        {{'Abierto'}}
+                    @elseif($ventas->estado=='1')
+                        {{'Cerrado'}}
+                    @else
+                        {{'Cancelado'}}
+                    @endif
+                </td>
                 <td width="120">
                     {!! Form::open(['route' => ['ventas.destroy', $ventas->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

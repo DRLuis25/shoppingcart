@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -95,7 +96,7 @@ class Ventas extends Model
      **/
     public function cliente()
     {
-        return $this->belongsTo(\App\Models\User::class, 'cliente_id');
+        return $this->belongsTo(User::class, 'cliente_id');
     }
 
     /**

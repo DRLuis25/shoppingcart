@@ -10,7 +10,7 @@ return array (
     'foto' => 'Foto',
     'stock' => 'Stock',
     'precio' => 'Precio',
-    'categoria_id' => 'Categoria Id',
+    'categoria_id' => 'Categoria',
     'created_at' => 'Created At',
     'updated_at' => 'Updated At',
     'deleted_at' => 'Deleted At',
