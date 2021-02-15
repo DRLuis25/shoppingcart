@@ -25,8 +25,7 @@ class UpdateVentasRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Ventas::$rules;
-        
+        $rules = Ventas::$updateRules;
         return $rules;
     }
 }

@@ -90,6 +90,9 @@ class Ventas extends Model
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
+    public static $updateRules = [
+        'estado' => 'required|string|max:1',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
