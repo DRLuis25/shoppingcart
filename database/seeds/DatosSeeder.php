@@ -23,6 +23,7 @@ class DatosSeeder extends Seeder
             'name'=>'admin',
             'last_name'=>'admin',
             'email'=>'admin@gmail.com',
+            'direccion'=>'Sucre',
             'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
         ]);
         $admin->assignRole('admin');
@@ -30,6 +31,7 @@ class DatosSeeder extends Seeder
             'name'=>'user',
             'last_name'=>'admin',
             'email'=>'user@gmail.com',
+            'direccion'=>'Dirección random',
             'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
         ]);
         $user->assignRole('user');

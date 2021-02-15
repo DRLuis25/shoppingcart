@@ -32,14 +32,26 @@ Route::get('/registro', function () {
 
 Route::get('/agregarproducto/{id}','ComprasController@agregarproducto')->name('agregarproducto');
 
+Route::delete('/eliminarproducto/{id}','ComprasController@eliminarproducto')->name('eliminarproducto');
+
 Route::get('/agregado','ComprasController@agregado')->name('agregado');
 
 Route::get('/review','ComprasController@review')->name('review');
 
-Route::get('/procesarpedido','ComprasController@procesarpedido')->name('procesarpedido');
+Route::post('/procesarpedido','ComprasController@procesarpedido')->name('procesarpedido');
+
+Route::get('/procesado','ComprasController@procesado')->name('procesado');
 
 Route::get('/vaciar','ComprasController@vaciarcarrito')->name('vaciarcarrito');
 
-Route::get('/revision', function () {
-    return view('shop.revision');
-})->name('revision');
+Route::get('/revision','ComprasController@revision')->name('revision');
+
+Route::get('ordenes','ComprasController@ordenes')->name('ordenes');
+
+Route::resource('ventas', 'VentasController');
+
+Route::post('/anularventa','VentasController@anular')->name('ventas.anular');
+
+Route::get('/verorden/{id}','VentasController@verorden')->name('ventas.ver');
+
+Route::resource('detalleVentas', 'DetalleVentasController');

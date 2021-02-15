@@ -1,0 +1,23 @@
+<?php
+
+return array (
+  'singular' => 'Ventas',
+  'plural' => 'Ventas',
+  'fields' => 
+  array (
+    'id' => 'Id',
+    'cliente_id' => 'Cliente Id',
+    'ccname' => 'Ccname',
+    'ccnumber' => 'Ccnumber',
+    'cc' => 'Cc',
+    'direccion' => 'Dirección',
+    'subtotal' => 'Subtotal',
+    'envio' => 'Envío',
+    'otros' => 'Otros',
+    'total' => 'Total',
+    'estado' => 'Estado',
+    'created_at' => 'Created At',
+    'updated_at' => 'Updated At',
+    'deleted_at' => 'Deleted At',
+  ),
+);

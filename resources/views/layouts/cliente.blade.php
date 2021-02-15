@@ -40,6 +40,7 @@
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- Menu Footer-->
                     <a class="dropdown-item" href="#">Perfil</a>
+                    <a class="dropdown-item" href="{{route('ordenes')}}">Mis ordenes</a>
                     <a href="#" class="dropdown-item"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Cerrar sesión

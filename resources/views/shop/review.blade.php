@@ -17,6 +17,12 @@
                     <a href="{{route('vaciarcarrito')}}" class="btn btn-outline-primary">Vaciar carrito</a>
                     <a href="{{route('revision')}}" class="btn btn-primary">Proceder con el pago</a>
                 </div>
+                @foreach (Cart::content() as $item)
+                    <form id="eliminar-prod{{$item->rowId}}" action="{{ route('eliminarproducto',$item->rowId) }}" method="POST">
+                        @method('delete')
+                        @csrf
+                    </form>
+                @endforeach
             </div>
             @else
                 <div class="alert alert-info text-center m-0" role="alert">

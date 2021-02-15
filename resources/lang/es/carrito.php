@@ -8,8 +8,11 @@ return [
     'total'   => 'Total',
     'subtotal' => 'Subtotal',
     'importe' => 'Importe',
-    'added' => 'Producto añadido al carrito',
+    'added' => 'Producto añadido al carrito.',
     'description' => 'Descripción',
-    'empty' => 'Carrito eliminado correctamente',
-    'vacio' => 'El carrito de compra está vacío'
+    'empty' => 'Carrito eliminado correctamente.',
+    'vacio' => 'El carrito de compra está vacío.',
+    'eliminado' => 'Producto eliminado.',
+    'success' => 'Compra registrada.',
+    'error' =>  'Error al procesar la compra.',
 ];

@@ -5,6 +5,8 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
+use Illuminate\Support\Facades\DB;
+
 /**
  * Class Productos
  * @package App\Models
@@ -97,5 +99,11 @@ class Productos extends Model implements Buyable
     }
     public function getBuyableWeight($options = null){
         return 0;
+    }
+
+    public static function ActualizarStock($producto_id,$cantidad){ 
+        return DB::select(
+             DB::raw("UPDATE product set stock = stock - '".$cantidad."' where id='".$producto_id."'")
+        );
     }
 }

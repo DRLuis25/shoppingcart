@@ -13,11 +13,10 @@
             @foreach (Cart::content() as $item)
                 <tr>
                     <td width="120">
-                        {!! Form::open(['route' => ['productos.destroy',1], 'method' => 'delete']) !!}
+                        {{-- {!! Form::open(['route' => ['eliminarproducto',$item->rowId], 'method' => 'delete']) !!} --}}
                         <div class='btn-group'>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => 'return confirm("'.__('crud.are_you_sure').'")']) !!}
+                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => " if(confirm('Está seguro?')){event.preventDefault(); document.getElementById('eliminar-prod$item->rowId').submit();}else{event.preventDefault();}"]) !!}
                         </div>
-                        {!! Form::close() !!}
                     </td>
                     <td>{{ $item->qty }}</td>
                     <td>{{ $item->name }}</td>

@@ -17,10 +17,15 @@ class CreateVentasTable extends Migration
         Schema::create('venta', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cliente_id');
+            $table->string('ccname');
+            $table->string('ccnumber');
+            $table->string('cc');
+            $table->string('direccion');
             $table->double('subtotal');
             $table->double('envio')->nullable();
             $table->double('otros')->nullable();
             $table->double('total');
+            $table->char('estado',1)->default('0');//0:abierta,1:cerrada,2:cancelada
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('cliente_id', 'venta_has_cliente_ibfk_1')->references('id')->on('users');
@@ -30,6 +35,7 @@ class CreateVentasTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->double('precio');
             $table->double('cantidad');
+            $table->double('subtotal');
             $table->timestamps();
             $table->softDeletes();
             $table->unique(['venta_id','product_id']);

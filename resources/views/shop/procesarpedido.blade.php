@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('flash::message')
     <div class="col-sm-12 text-center">
         <h4>Estamos procesando su pedido</h4>
         <p>Esto puede tomar unos minutos</p>
