@@ -14,7 +14,7 @@
             <div class="form-group">
                 <label for="cardNumber">Número de tarjeta</label>
                 <div class="input-group">
-                <input type="text" name="cardNumber" placeholder="Tu número de tarjeta" class="form-control" required>
+                <input type="text" name="cardNumber" minlength="16" maxlength="16" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Tu número de tarjeta" class="form-control" required>
                 <div class="input-group-append">
                     <span class="input-group-text text-muted">
                         <i class="fab fa-cc-visa mx-1"></i>
@@ -29,8 +29,8 @@
                 <div class="form-group">
                     <label><span class="hidden-xs">Fecha de expiración</span></label>
                     <div class="input-group">
-                    <input type="number" placeholder="MM" name="mes" class="form-control" required>
-                    <input type="number" placeholder="YY" name="anio" class="form-control" required>
+                    <input type="number" min="1" max="12" placeholder="MM" name="mes" class="form-control" required>
+                    <input type="number" min="2021"  placeholder="YY" name="anio" class="form-control" required>
                     </div>
                 </div>
                 </div>
@@ -39,7 +39,7 @@
                     <label data-toggle="tooltip" title="Three-digits code on the back of your card">CVV
                         <i class="fa fa-question-circle"></i>
                     </label>
-                    <input type="text" name="cvv" required class="form-control">
+                    <input type="text" minlength="3" maxlength="3"  name="cvv" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required class="form-control">
                 </div>
                 </div>
             </div>
@@ -53,3 +53,12 @@
     </div>
     </div>
 </div>
+
+<script>
+    function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}
+</script>
