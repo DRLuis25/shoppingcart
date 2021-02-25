@@ -60,7 +60,7 @@ class ComprasController extends Controller
             //Añadir tarjeta?
             $venta->ccname = $request->username;
             $venta->ccnumber = $request->cardNumber;
-            $venta->cc = $request->mes."-".$request->mes."-".$request->cvv;
+            $venta->cc = $request->mes."-".$request->anio."-".$request->cvv;
             //dirección envío
             $venta->direccion = $request->direccion;
             //Venta

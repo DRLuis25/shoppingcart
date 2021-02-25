@@ -20,18 +20,18 @@ class DatosSeeder extends Seeder
         Role::create(['name' => 'user']);
         Role::create(['name' => 'admin']);
         $admin=User::create([
-            'name'=>'admin',
+            'name'=>'Admin',
             'last_name'=>'admin',
             'email'=>'admin@gmail.com',
             'direccion'=>'Sucre',
-            'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
+            'password'=>'$2y$10$lDFpg1.X4h8o6p6J0hj/fueqodK7VsAPBqlaKDugwJUEZsKRUSSxe' //123
         ]);
         $admin->assignRole('admin');
         $user=User::create([
-            'name'=>'user',
-            'last_name'=>'admin',
-            'email'=>'user@gmail.com',
-            'direccion'=>'Dirección random',
+            'name'=>'Robert',
+            'last_name'=>'Sanchez Ticona',
+            'email'=>'robert@gmail.com',
+            'direccion'=>'4514  Sunny Glen Lane',
             'password'=>'$2y$10$cuf37o9lN0IkRFv73Q7IB.c5bDqCvog845XuTKHxSbMep/D04mknG' //password
         ]);
         $user->assignRole('user');
@@ -44,13 +44,13 @@ class DatosSeeder extends Seeder
             'descripcion'=>'zapatillas',
         ]);
         $categoria3=Categorias::create([
-            'descripcion'=>'ga',
+            'descripcion'=>'gorros',
         ]);
         $categoria4=Categorias::create([
-            'descripcion'=>'gaes',
+            'descripcion'=>'polos',
         ]);
         $categoria5=Categorias::create([
-            'descripcion'=>'asdasdasd',
+            'descripcion'=>'zapatos',
         ]);
 
         //productos
